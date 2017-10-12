@@ -1,0 +1,27 @@
+{
+  "name": "liri-bot",
+  "version": "1.0.0",
+  "description": "\"This application will be a command line node app that takes in parameters and returns user back data.\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anjunha93/liri-bot.git"
+  },
+  "keywords": [
+    "Liri",
+    "Siri",
+    "Command"
+  ],
+  "author": "Jun Ahn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anjunha93/liri-bot/issues"
+  },
+  "homepage": "https://github.com/anjunha93/liri-bot#readme",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7"
+  }
+}
