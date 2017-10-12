@@ -1,21 +1,21 @@
 var twitterKeys = require("./keys.js")
-var Twitter = require('twitterKeys');
+var Twitter = require('twitter');
 var Spotify = require('node-spotify-api')
 var request = require('request')
 var fs = require("fs")
  
 var client = new Twitter({
-    consumer_key: twitterKeys.consumer_key,
-    consumer_secret: twitterKeys.consumer_secret,
-    access_token_key: twitterKeys.access_token_key,
-    access_token_secret: twitterKeys.access_token_secret
+    consumer_key: 'oo78kHxopHj4Z6L3hyeEE1xD4',
+    consumer_secret: 'AKEdabP82tNjfvB6rHbM1hTNqZT1wozscEya8bU7xnfy2yi51P',
+    access_token_key: '918306561449254913-b28N2A73tRU2OlglCZhchoyC8FCH1Dx',
+    access_token_secret: '42r105O3AzSl8EF2JB9vTbo2SF8HjGmzAc1xgFJMqr6Wo',
 });
 
 if (process.argv[2] === "my-tweets") {
     if (process.argv[3]) {
         var screenName = process.argv[3];
     } else {
-        var screenName = helloworld9399
+        var screenName = 'helloworld9399';
     }
 
     var params = {screen_name: screenName};
@@ -89,8 +89,13 @@ if (process.argv[2] === "my-tweets") {
 function tweets(params) {
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
     if (!error) {
-        for (var i = 0; i < tweets.length; i++)
-    console.log(tweets);
+        for (var i = 0; i < tweets.length; i++) {
+            console.log("Tweet #: " + (i+1))
+            console.log("Tweet Date: " + tweets[i].created_at);
+            console.log("Tweet text: " + tweets[i].text);
+            console.log("Tweeter: " + tweets[i].user.screen_name);
+            console.log("\n");
+        }
     }
     });
 };
@@ -108,7 +113,11 @@ function spotify(songName) {
         }
 
         var song = data.tracks.items[0];
-        console.log(data)
+	    console.log("Song Name: " + song.name)
+	    console.log("Artist: " + song.album.artists[0].name)
+	    console.log("Album: " + song.album.name)
+	    console.log("Preview: " + song.preview_url)
+	    console.log("\n")
        
       
       });
